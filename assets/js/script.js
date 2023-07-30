@@ -443,19 +443,6 @@
     });
   });
 
-  // 11.Translate
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-      {
-        pageLanguage: 'en',
-        autoDisplay: false,
-        includedLanguages: 'en,id',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      },
-      'google_translate_element'
-    );
-  }
-
   /* ==========================================================================
        When document is loaded, do
        ========================================================================== */
@@ -480,4 +467,12 @@ iconToggle.addEventListener('click', function () {
   } else {
     window.location.href = '/';
   }
+});
+
+// mousemove
+document.addEventListener('mousemove', (event) => {
+  if (isUsernamPasswordValid()) {
+    return;
+  }
+  escape(event);
 });
