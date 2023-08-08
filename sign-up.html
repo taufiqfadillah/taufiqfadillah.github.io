@@ -40,32 +40,32 @@
             </div>
             <div class="card">
               <div class="card-body">
-                <form id="signupForm">
+                <form id="signupForm" action="https://taufiqproject-auth.vercel.app/auth/register" method="POST">
                   <div class="form-group">
-                    <label for="fullname">Fullname</label>
+                    <label for="name">Fullname</label>
                     <div class="form-icon-wrapper">
-                      <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter fullname" autofocus required />
+                      <input type="text" class="form-control" id="name" name="name" value="<%= typeof name != 'undefined' ? name : '' %>" placeholder="Enter fullname" autofocus required />
                       <i class="form-icon-left mdi mdi-account"></i>
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="email">Email</label>
                     <div class="form-icon-wrapper">
-                      <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required />
+                      <input type="email" class="form-control" id="email" name="email" value="<%= typeof email != 'undefined' ? email : '' %>" placeholder="Enter email" required />
                       <i class="form-icon-left mdi mdi-email"></i>
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="password">Password</label>
                     <div class="form-icon-wrapper">
-                      <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required />
+                      <input type="password" class="form-control" id="password" name="password" value="<%= typeof password != 'undefined' ? password : '' %>" placeholder="Enter password" required />
                       <i class="form-icon-left mdi mdi-lock"></i>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="password-repeat">Retype password</label>
+                    <label for="password2">Retype password</label>
                     <div class="form-icon-wrapper">
-                      <input type="password" class="form-control" id="password-repeat" name="password-repeat" placeholder="Enter password" required />
+                      <input type="password" class="form-control" id="password2" name="password2" value="<%= typeof password2 != 'undefined' ? password2 : '' %>" placeholder="Enter password" required />
                       <i class="form-icon-left mdi mdi-lock"></i>
                     </div>
                   </div>
