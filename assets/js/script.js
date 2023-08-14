@@ -260,13 +260,11 @@
   });
 
   //   08.Blog-Details
-  // Fungsi untuk mendapatkan parameter dari URL
   function getURLParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
   }
 
-  // Fungsi untuk menampilkan detail artikel berdasarkan slug yang diberikan
   function displayArticleDetails(articleSlug) {
     fetch('https://dashboard.taufiqproject.my.id/blogs')
       .then((response) => response.json())
@@ -290,12 +288,10 @@
           const blogDetailsContainer = document.querySelector('.blog-details-container');
           blogDetailsContainer.insertAdjacentHTML('beforeend', articleDetails);
 
-          // Menampilkan tag pada elemen HTML dengan class "tag-clouds mb-10 mr-auto"
           const tagsContainer = document.querySelector('.tag-clouds.mb-10.mr-auto');
           const categoriesHTML = article.category.map((category) => `<a href="#">${category}</a>`).join(' ');
           tagsContainer.innerHTML = `<b>Categories</b> ${categoriesHTML}`;
         } else {
-          // Artikel tidak ditemukan, tampilkan pesan kesalahan
           const errorDetails = '<p>Article not found.</p>';
           const blogDetailsContainer = document.querySelector('.blog-details-container');
           blogDetailsContainer.insertAdjacentHTML('beforeend', errorDetails);
@@ -304,7 +300,6 @@
       .catch((error) => console.error('Error fetching articles:', error));
   }
 
-  // Panggil fungsi untuk menampilkan detail artikel berdasarkan slug yang ada di URL
   const articleSlug = getURLParameter('id');
   if (articleSlug) {
     displayArticleDetails(articleSlug);
@@ -314,13 +309,10 @@
   fetch('https://dashboard.taufiqproject.my.id/blogs')
     .then((response) => response.json())
     .then((data) => {
-      // Sort articles by date in descending order (most recent first)
       const sortedArticles = data.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-      // Get the three most recent articles
       const recentArticles = sortedArticles.slice(0, 3);
 
-      // Generate HTML for each recent article and append to the news-widget-wrap element
       const recentNewsElement = document.getElementById('recent-news');
       recentArticles.forEach((article) => {
         const articleHTML = `
@@ -343,20 +335,16 @@
   fetch('https://dashboard.taufiqproject.my.id/blogs')
     .then((response) => response.json())
     .then((data) => {
-      // Create an object to store the category names and their occurrences
       const categoryCounts = {};
 
-      // Loop through each article to extract the category names and count their occurrences
       data.forEach((article) => {
         article.category.forEach((category) => {
           categoryCounts[category] = (categoryCounts[category] || 0) + 1;
         });
       });
 
-      // Get the category list element
       const categoryListElement = document.getElementById('category-list');
 
-      // Generate HTML for each category and its occurrence count and append to the category list element
       for (const category in categoryCounts) {
         const categoryHTML = `
           <li>
@@ -402,18 +390,15 @@
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      // Ambil nilai-nilai dari formulir
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const message = document.getElementById('message').value;
 
-      // Konfigurasi data untuk dikirimkan ke Formspree
       const formData = new FormData();
       formData.append('name', name);
       formData.append('email', email);
       formData.append('message', message);
 
-      // Kirim data ke Formspree menggunakan Fetch API
       fetch('https://formspree.io/f/mrgwbkpb', {
         method: 'POST',
         body: formData,
@@ -423,12 +408,10 @@
       })
         .then((response) => {
           if (response.ok) {
-            // Jika berhasil mengirimkan data, tampilkan pesan sukses
             responseMessage.innerHTML = '<p>Thank you for your message! We will get back to you soon.</p>';
             responseMessage.classList.add('success');
             contactForm.reset();
           } else {
-            // Jika gagal mengirimkan data, tampilkan pesan error
             responseMessage.innerHTML = '<p>Oops! Something went wrong. Please try again later.</p>';
             responseMessage.classList.add('error');
           }
@@ -476,7 +459,6 @@ document.addEventListener('mousemove', (event) => {
 });
 
 // Language and Theme
-// Function to change language and theme
 function changeLanguage(lang, theme) {
   const languageItems = document.getElementsByClassName('menu-lang-item');
 
