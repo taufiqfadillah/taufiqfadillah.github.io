@@ -504,15 +504,18 @@ function setActiveTheme() {
 
 document.addEventListener('DOMContentLoaded', setActiveTheme);
 
-// Anime Typed
+// Animated Typing
 document.addEventListener('DOMContentLoaded', function () {
-  var options = {
-    strings: ['Superhero', 'Taufiq Fadillah', 'Web Development', 'Freelancer'],
-    typeSpeed: 100,
-    backSpeed: 70,
-    backDelay: 1000,
-    startDelay: 1000,
+  const options = {
+    strings: ['Web Development', 'Freelancer', 'And Then Superheroes'],
+    typeSpeed: 70,
+    backSpeed: 30,
+    startDelay: 2700,
+    backDelay: 500,
     loop: true,
+    showCursor: true,
+    cursorChar: '|',
   };
-  var typed = new Typed('.text-typed', options);
+
+  const typed = new Typed('#typed-output', options);
 });
