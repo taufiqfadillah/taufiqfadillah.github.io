@@ -281,6 +281,7 @@
               <li><i class="far fa-calendar-alt"></i> ${new Date(article.date).toDateString()}</li>
               <li><i class="far fa-comments"></i> Comments (${article.comments})</li>
               <li><i class="far fa-share-square"></i> Share (${article.shares})</li>
+              <li><i class="far fa-heart"></i> Likes (${article.likes})</li>
             </ul>
             <h3>${article.title}</h3>
             ${article.content}
@@ -291,8 +292,8 @@
 
           // Menampilkan tag pada elemen HTML dengan class "tag-clouds mb-10 mr-auto"
           const tagsContainer = document.querySelector('.tag-clouds.mb-10.mr-auto');
-          const tagsHTML = article.tags.map((tag) => `<a href="#">${tag}</a>`).join(' ');
-          tagsContainer.innerHTML = `<b>Tags</b> ${tagsHTML}`;
+          const categoriesHTML = article.category.map((category) => `<a href="#">${category}</a>`).join(' ');
+          tagsContainer.innerHTML = `<b>Categories</b> ${categoriesHTML}`;
         } else {
           // Artikel tidak ditemukan, tampilkan pesan kesalahan
           const errorDetails = '<p>Article not found.</p>';
@@ -374,23 +375,19 @@
   fetch('https://dashboard.taufiqproject.my.id/blogs')
     .then((response) => response.json())
     .then((data) => {
-      // Create a Set to store unique tags
-      const uniqueTags = new Set();
+      const uniqueCategories = new Set();
 
-      // Loop through each article to extract the tags from categories and add them to the set
       data.forEach((article) => {
         article.category.forEach((category) => {
-          uniqueTags.add(category);
+          uniqueCategories.add(category);
         });
       });
 
-      // Get the popular tags element
-      const popularTagsElement = document.getElementById('popular-tags');
+      const popularCategoriesElement = document.getElementById('popular-categories');
 
-      // Generate HTML for each unique tag and append to the popular tags element
-      uniqueTags.forEach((tag) => {
-        const tagHTML = `<a href="blog.html">${tag}</a>`;
-        popularTagsElement.innerHTML += tagHTML;
+      uniqueCategories.forEach((category) => {
+        const categoryHTML = `<a href="blog.html">${category}</a>`;
+        popularCategoriesElement.innerHTML += categoryHTML;
       });
     })
     .catch((error) => {
