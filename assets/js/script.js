@@ -487,7 +487,6 @@ function changeLanguage(lang, theme) {
   const selectedLanguage = document.querySelector(`[onclick="changeLanguage('${lang}')"]`);
   selectedLanguage.classList.add('active');
 
-  // Save the selected theme to localStorage
   localStorage.setItem('selectedTheme', theme);
 }
 
@@ -503,5 +502,17 @@ function setActiveTheme() {
   }
 }
 
-// Call the setActiveTheme function when the page is loaded
 document.addEventListener('DOMContentLoaded', setActiveTheme);
+
+// Anime Typed
+document.addEventListener('DOMContentLoaded', function () {
+  var options = {
+    strings: ['Superhero', 'Taufiq Fadillah', 'Web Development', 'Freelancer'],
+    typeSpeed: 100,
+    backSpeed: 70,
+    backDelay: 1000,
+    startDelay: 1000,
+    loop: true,
+  };
+  var typed = new Typed('.text-typed', options);
+});
