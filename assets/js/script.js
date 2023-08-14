@@ -181,13 +181,14 @@
   });
 
   // 07.Blog
+
   document.addEventListener('DOMContentLoaded', function () {
     const articlesPerLoad = 3;
     let currentLoadedArticles = 0;
     let allArticlesData = [];
 
     function fetchArticles() {
-      fetch('articles.json')
+      fetch('https://dashboard.taufiqproject.my.id/blogs')
         .then((response) => response.json())
         .then((data) => {
           allArticlesData = data;
@@ -206,7 +207,7 @@
     }
 
     function displayArticles(startIndex, count) {
-      const blogContainer = document.querySelector('.blog-container');
+      const blogContainer = document.getElementById('blog-container');
       const loadMoreContainer = document.querySelector('.load-more-container');
 
       const endIndex = Math.min(startIndex + count, allArticlesData.length);
@@ -219,9 +220,9 @@
         <div class="blog-item">
           <img src="${article.image}" alt="Blog" />
           <ul class="blog-meta">
-            <li><i class="far fa-calendar-alt"></i> <a href="#">${article.date}</a></li>
-            <li><i class="far fa-comments"></i> <a href="#">Comments (${article.comments})</a></li>
-            <li><i class="far fa-share-square"></i> <a href="#">Share (${article.shares})</a></li>
+            <li><i class="far fa-calendar-alt"></i> ${new Date(article.date).toDateString()}</li>
+            <li><i class="far fa-comments"></i> Comments (${article.comments})</li>
+            <li><i class="far fa-share-square"></i> Share (${article.shares})</li>
           </ul>
           <h3>
             <a href="blog-details.html?id=${article.slug}" data-title="${article.title}">${article.title}</a>
@@ -234,7 +235,6 @@
         blogContainer.insertAdjacentHTML('beforeend', articleHTML);
       }
 
-      // Periksa apakah ada lebih banyak artikel untuk dimuat
       if (endIndex < allArticlesData.length) {
         const remainingArticles = allArticlesData.length - endIndex;
         const loadMoreHTML = `
@@ -267,7 +267,7 @@
 
   // Fungsi untuk menampilkan detail artikel berdasarkan slug yang diberikan
   function displayArticleDetails(articleSlug) {
-    fetch('articles.json')
+    fetch('https://dashboard.taufiqproject.my.id/blogs')
       .then((response) => response.json())
       .then((data) => {
         const article = data.find((article) => article.slug === articleSlug);
@@ -309,7 +309,7 @@
   }
 
   // 09. Recent News Blog
-  fetch('articles.json')
+  fetch('https://dashboard.taufiqproject.my.id/blogs')
     .then((response) => response.json())
     .then((data) => {
       // Sort articles by date in descending order (most recent first)
@@ -338,7 +338,7 @@
     });
 
   // 10. Category Blog
-  fetch('articles.json')
+  fetch('https://dashboard.taufiqproject.my.id/blogs')
     .then((response) => response.json())
     .then((data) => {
       // Create an object to store the category names and their occurrences
@@ -370,7 +370,7 @@
     });
 
   // 11. Popular Tag
-  fetch('articles.json')
+  fetch('https://dashboard.taufiqproject.my.id/blogs')
     .then((response) => response.json())
     .then((data) => {
       // Create a Set to store unique tags
