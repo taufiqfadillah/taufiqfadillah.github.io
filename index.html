@@ -121,9 +121,9 @@
                       <h1 class="slide-title animate-element delay5 fadeInUp">
                         Hi,<br />
                         I’m
-                        <span class="text-typed a-typed a-typed-about" data-text="Taufiq Fadillah"> </span>
+                        <span class="text-typed a-typed a-typed-about"> </span>
                       </h1>
-                      <h3 id="typed-text" class="fadeInUp"></h3>
+                      <h3 class="animate-element delay7 fadeInUp">Web Development & Freelancer</h3>
                       <p class="animate-element delay8 fadeInUp">Hey are looking for designer to build your <b>Website and gorw your business ?</b> let's shake hands with me.</p>
                       <a href="#Contact" class="theme-btn mt-45 rmt-25 animate-element delay9 fadeInUp">hire me <i class="fas fa-long-arrow-alt-right"></i></a>
                       <div class="social-style-one mt-55 rmt-35 animate-element delay10 fadeInUp">
@@ -580,20 +580,17 @@
     <script src="assets/js/typed.min.js"></script>
     <!--====== Main JS ======-->
     <script src="assets/js/script.js"></script>
-    <!--====== Anime JS ======-->
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        const typedOptions = {
-          strings: ['Web Development', 'Freelancer', 'Hobbies'],
-          typeSpeed: 70,
-          backSpeed: 50,
+        var options = {
+          strings: ['Superhero', 'Taufiq Fadillah', 'Web Development', 'Freelancer'],
+          typeSpeed: 100,
+          backSpeed: 70,
           backDelay: 1000,
-          startDelay: 3000,
+          startDelay: 1000,
           loop: true,
-          smartBackspace: true,
         };
-        const typed = new Typed('#typed-text', typedOptions);
+        var typed = new Typed('.text-typed', options);
       });
     </script>
   </body>
