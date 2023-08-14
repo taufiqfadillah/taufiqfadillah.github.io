@@ -2283,3 +2283,23 @@ blockquote .designation {
   -ms-transform: translate(2px, 2px);
   transform: translate(2px, 2px);
 }
+
+/* typed animasi */
+.animate-element {
+  opacity: 0;
+}
+
+.fadeInUp {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

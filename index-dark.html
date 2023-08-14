@@ -116,7 +116,7 @@
                   <a href="assets/cv/Taufiq-Fadillah-Resume-2023.pdf" class="download-cv">Download CV <i class="fas fa-download"></i></a>
                 </div>
                 <div class="row align-items-center">
-                  <div class="col-lg-5">
+                  <div class="col-lg-7">
                     <div class="about-content pt-100 rpt-0 animate-element delay5 fadeInUp">
                       <span class="sub-title mb-15 animate-element delay3 fadeInUp">About Me</span>
                       <h1 class="slide-title animate-element delay5 fadeInUp">
@@ -134,7 +134,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-7">
+                  <div class="col-lg-5">
                     <div class="about-image pt-100 rpt-50 text-lg-right">
                       <div class="about-inner-images">
                         <img class="animate-element delay7 fadeInUp" src="assets/images/about/about.png" alt="About" />
@@ -581,17 +581,7 @@
     <script src="assets/js/typed.min.js"></script>
     <!--====== Main JS ======-->
     <script src="assets/js/script.js"></script>
-    <script>
-      function changeLanguage(lang) {
-        const languageItems = document.getElementsByClassName('menu-lang-item');
-
-        for (let i = 0; i < languageItems.length; i++) {
-          languageItems[i].classList.remove('active');
-        }
-
-        const selectedLanguage = document.querySelector(`[onclick="changeLanguage('${lang}')"]`);
-        selectedLanguage.classList.add('active');
-      }
-    </script>
+    <!--====== Anime JS ======-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
   </body>
 </html>

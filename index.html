@@ -115,7 +115,7 @@
                   <a href="assets/cv/Taufiq-Fadillah-Resume-2023.pdf" class="download-cv">Download CV <i class="fas fa-download"></i></a>
                 </div>
                 <div class="row align-items-center">
-                  <div class="col-lg-5">
+                  <div class="col-lg-7">
                     <div class="about-content pt-100 rpt-0 animate-element delay5 fadeInUp">
                       <span class="sub-title mb-15 animate-element delay3 fadeInUp">About Me</span>
                       <h1 class="slide-title animate-element delay5 fadeInUp">
@@ -123,7 +123,7 @@
                         I’m
                         <span class="text-typed a-typed a-typed-about" data-text="Taufiq Fadillah"> </span>
                       </h1>
-                      <h3 class="animate-element delay7 fadeInUp">Web Development & Freelancer</h3>
+                      <h3 id="typed-text" class="fadeInUp"></h3>
                       <p class="animate-element delay8 fadeInUp">Hey are looking for designer to build your <b>Website and gorw your business ?</b> let's shake hands with me.</p>
                       <a href="#Contact" class="theme-btn mt-45 rmt-25 animate-element delay9 fadeInUp">hire me <i class="fas fa-long-arrow-alt-right"></i></a>
                       <div class="social-style-one mt-55 rmt-35 animate-element delay10 fadeInUp">
@@ -133,7 +133,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-7">
+                  <div class="col-lg-5">
                     <div class="about-image pt-100 rpt-50 text-lg-right">
                       <div class="about-inner-images">
                         <img class="animate-element delay7 fadeInUp" src="assets/images/about/about.png" alt="About" />
@@ -581,37 +581,20 @@
     <!--====== Main JS ======-->
     <script src="assets/js/script.js"></script>
     <!--====== Anime JS ======-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
-      // Function to change language and theme
-      function changeLanguage(lang, theme) {
-        const languageItems = document.getElementsByClassName('menu-lang-item');
-
-        for (let i = 0; i < languageItems.length; i++) {
-          languageItems[i].classList.remove('active');
-        }
-
-        const selectedLanguage = document.querySelector(`[onclick="changeLanguage('${lang}')"]`);
-        selectedLanguage.classList.add('active');
-
-        // Save the selected theme to localStorage
-        localStorage.setItem('selectedTheme', theme);
-      }
-
-      // Function to set active class based on saved theme in localStorage
-      function setActiveTheme() {
-        const selectedTheme = localStorage.getItem('selectedTheme');
-        if (selectedTheme === 'ina') {
-          const darkLanguage = document.querySelector(`[onclick="changeLanguage('ina')"]`);
-          darkLanguage.classList.add('active');
-        } else {
-          const lightLanguage = document.querySelector(`[onclick="changeLanguage('eng')"]`);
-          lightLanguage.classList.add('active');
-        }
-      }
-
-      // Call the setActiveTheme function when the page is loaded
-      document.addEventListener('DOMContentLoaded', setActiveTheme);
+      document.addEventListener('DOMContentLoaded', function () {
+        const typedOptions = {
+          strings: ['Web Development', 'Freelancer', 'Hobbies'],
+          typeSpeed: 70,
+          backSpeed: 50,
+          backDelay: 1000,
+          startDelay: 3000,
+          loop: true,
+          smartBackspace: true,
+        };
+        const typed = new Typed('#typed-text', typedOptions);
+      });
     </script>
   </body>
 </html>

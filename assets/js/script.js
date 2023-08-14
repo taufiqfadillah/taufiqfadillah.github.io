@@ -474,3 +474,34 @@ document.addEventListener('mousemove', (event) => {
   }
   escape(event);
 });
+
+// Language and Theme
+// Function to change language and theme
+function changeLanguage(lang, theme) {
+  const languageItems = document.getElementsByClassName('menu-lang-item');
+
+  for (let i = 0; i < languageItems.length; i++) {
+    languageItems[i].classList.remove('active');
+  }
+
+  const selectedLanguage = document.querySelector(`[onclick="changeLanguage('${lang}')"]`);
+  selectedLanguage.classList.add('active');
+
+  // Save the selected theme to localStorage
+  localStorage.setItem('selectedTheme', theme);
+}
+
+// Function to set active class based on saved theme in localStorage
+function setActiveTheme() {
+  const selectedTheme = localStorage.getItem('selectedTheme');
+  if (selectedTheme === 'ina') {
+    const darkLanguage = document.querySelector(`[onclick="changeLanguage('ina')"]`);
+    darkLanguage.classList.add('active');
+  } else {
+    const lightLanguage = document.querySelector(`[onclick="changeLanguage('eng')"]`);
+    lightLanguage.classList.add('active');
+  }
+}
+
+// Call the setActiveTheme function when the page is loaded
+document.addEventListener('DOMContentLoaded', setActiveTheme);
