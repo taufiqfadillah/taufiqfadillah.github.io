@@ -317,7 +317,7 @@
       recentArticles.forEach((article) => {
         const articleHTML = `
           <div class="news-widget-item">
-            <img src="https://dashboard.taufiqproject.my.id/assets/dashboard/blog/${article.image}" style= "width: 100px; height: 100px;" alt="${article.title}"  loading="lazy"/>
+            <img src="https://dashboard.taufiqproject.my.id/assets/dashboard/blog/${article.image}" alt="${article.title}"  loading="lazy"/>
             <div class="content">
               <h6><a href="blog-details.html?id=${article.slug}">${article.title}</a></h6>
               <span class="date"><i class="far fa-calendar-alt"></i> <a href="blog-details.html?id=${article.slug}">${new Date(article.date).toDateString()}</a></span>
@@ -448,14 +448,6 @@ iconToggle.addEventListener('click', function () {
   } else {
     window.location.href = '/';
   }
-});
-
-// mousemove
-document.addEventListener('mousemove', (event) => {
-  if (isUsernamPasswordValid()) {
-    return;
-  }
-  escape(event);
 });
 
 // Language and Theme
