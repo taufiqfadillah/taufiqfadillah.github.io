@@ -218,11 +218,12 @@
 
         const articleHTML = `
         <div class="blog-item">
-          <img src="${article.image}" alt="Blog" />
+          <img src="https://dashboard.taufiqproject.my.id/assets/dashboard/blog/${article.image}" alt="Blog" />
           <ul class="blog-meta">
             <li><i class="far fa-calendar-alt"></i> ${new Date(article.date).toDateString()}</li>
             <li><i class="far fa-comments"></i> Comments (${article.comments})</li>
-            <li><i class="far fa-share-square"></i> Share (${article.shares})</li>
+            <li><i class="far fa-share-square"></i> Shares (${article.shares})</li>
+            <li><i class="far fa-heart"></i> Likes (${article.likes})</li>
           </ul>
           <h3>
             <a href="blog-details.html?id=${article.slug}" data-title="${article.title}">${article.title}</a>
@@ -275,9 +276,9 @@
           // Menampilkan detail artikel di halaman
           const articleDetails = `
           <div class="blog-item">
-            <img src="${article.image}" alt="Blog" />
+            <img src="https://dashboard.taufiqproject.my.id/assets/dashboard/blog/${article.image}" alt="Blog" />
             <ul class="blog-meta">
-              <li><i class="far fa-calendar-alt"></i> ${article.date}</li>
+              <li><i class="far fa-calendar-alt"></i> ${new Date(article.date).toDateString()}</li>
               <li><i class="far fa-comments"></i> Comments (${article.comments})</li>
               <li><i class="far fa-share-square"></i> Share (${article.shares})</li>
             </ul>
@@ -323,10 +324,10 @@
       recentArticles.forEach((article) => {
         const articleHTML = `
           <div class="news-widget-item">
-            <img src="${article['image-recent']}" alt="News" />
+            <img src="https://dashboard.taufiqproject.my.id/assets/dashboard/blog/${article.image}" style= "width: 100px; height: 100px;" alt="News" />
             <div class="content">
               <h6><a href="blog-details.html?id=${article.slug}">${article.title}</a></h6>
-              <span class="date"><i class="far fa-calendar-alt"></i> <a href="blog-details.html?id=${article.slug}">${article.date}</a></span>
+              <span class="date"><i class="far fa-calendar-alt"></i> <a href="blog-details.html?id=${article.slug}">${new Date(article.date).toDateString()}</a></span>
             </div>
           </div>
         `;
