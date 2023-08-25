@@ -170,7 +170,6 @@
     }
 
     function shareToInstagram() {
-      // Karena Instagram tidak mendukung share melalui URL, kita hanya membuka link profil Instagram
       window.open('https://www.instagram.com/', 'Go to Instagram');
     }
 
@@ -218,7 +217,7 @@
 
         const articleHTML = `
         <div class="blog-item">
-          <img src="https://dashboard.taufiqproject.my.id/assets/dashboard/blog/${article.image}" alt="${article.title}" loading="lazy" />
+          <img src="https://gudrtdnruivalvgpfens.supabase.co/storage/v1/object/public/taufiqproject/blog/${article.image}" alt="${article.title}" loading="lazy" />
           <ul class="blog-meta">
             <li><i class="far fa-calendar-alt"></i> ${new Date(article.date).toDateString()}</li>
             <li><i class="far fa-comments"></i> Comments (${article.comments})</li>
@@ -274,7 +273,7 @@
           // Menampilkan detail artikel di halaman
           const articleDetails = `
           <div class="blog-item">
-            <img src="https://dashboard.taufiqproject.my.id/assets/dashboard/blog/${article.image}" alt="${article.title}" loading="lazy" />
+            <img src="https://gudrtdnruivalvgpfens.supabase.co/storage/v1/object/public/taufiqproject/blog/${article.image}" alt="${article.title}" loading="lazy" />
             <ul class="blog-meta">
               <li><i class="far fa-calendar-alt"></i> ${new Date(article.date).toDateString()}</li>
               <li><i class="far fa-comments"></i> Comments (${article.comments})</li>
@@ -317,7 +316,7 @@
       recentArticles.forEach((article) => {
         const articleHTML = `
           <div class="news-widget-item">
-            <img src="https://dashboard.taufiqproject.my.id/assets/dashboard/blog/${article.image}" alt="${article.title}"  loading="lazy"/>
+            <img src="https://gudrtdnruivalvgpfens.supabase.co/storage/v1/object/public/taufiqproject/blog/${article.image}" alt="${article.title}"  loading="lazy"/>
             <div class="content">
               <h6><a href="blog-details.html?id=${article.slug}">${article.title}</a></h6>
               <span class="date"><i class="far fa-calendar-alt"></i> <a href="blog-details.html?id=${article.slug}">${new Date(article.date).toDateString()}</a></span>
