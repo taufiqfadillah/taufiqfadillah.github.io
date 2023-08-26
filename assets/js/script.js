@@ -187,14 +187,22 @@
     let allArticlesData = [];
 
     function fetchArticles() {
-      fetch('https://dashboard.taufiqproject.my.id/blogs')
-        .then((response) => response.json())
-        .then((data) => {
-          allArticlesData = data;
-          displayArticles(currentLoadedArticles, articlesPerLoad);
-          setupCategoryFilter();
-        })
-        .catch((error) => console.error('Error fetching articles:', error));
+      const cachedData = localStorage.getItem('cachedArticles');
+      if (cachedData) {
+        allArticlesData = JSON.parse(cachedData);
+        displayArticles(currentLoadedArticles, articlesPerLoad);
+        setupCategoryFilter();
+      } else {
+        fetch('https://dashboard.taufiqproject.my.id/blogs')
+          .then((response) => response.json())
+          .then((data) => {
+            allArticlesData = data;
+            localStorage.setItem('cachedArticles', JSON.stringify(data));
+            displayArticles(currentLoadedArticles, articlesPerLoad);
+            setupCategoryFilter();
+          })
+          .catch((error) => console.error('Error fetching articles:', error));
+      }
     }
 
     function truncateText(text, limit) {
